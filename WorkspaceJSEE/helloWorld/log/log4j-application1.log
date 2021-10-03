@@ -1,0 +1,4 @@
+2021-10-03 21:35:06 INFO  helloWorld.Log4jDemo.main:13 - This is information message
+2021-10-03 21:35:06 WARN  helloWorld.Log4jDemo.main:14 - This is warn message
+2021-10-03 21:35:06 ERROR helloWorld.Log4jDemo.main:15 - This is error message 
+2021-10-03 21:35:06 FATAL helloWorld.Log4jDemo.main:17 - This is fatal message 
