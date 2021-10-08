@@ -25,11 +25,9 @@ public class MyLibraryLuncher {
 		bookService.createBook("le Zahir", "Paolo", "2005");
 		bookService.createBook("le Zahir", "Paolo", "2005");
 
-		for (int i = 0; i < 1000000; i++) {
 			borrowService.checkOut("DM100", "PA05-10");
 			borrowService.checkIn("DM100", "PA05-10");
-		}
-
+		
 	}
 
 }

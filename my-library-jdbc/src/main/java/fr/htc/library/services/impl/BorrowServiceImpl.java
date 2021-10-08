@@ -42,7 +42,7 @@ public class BorrowServiceImpl implements BorrowService {
 				member.addBook(book);
 				book.setBorrower(member);
 				logger.info("Book successfully checked out : (cote, matricule) = (" + cote + ", " + matricule + ")" );
-				throw new Exception("C'est moi qui est à l'origine");
+				throw new Exception("C'est moi qui est Ã  l'origine");
 			}
 		} catch (Exception e) {
 			logger.error("Unknown exception occues when check ed out book  : (cote, matricule) = (" + cote + ", " + matricule + ")", e);

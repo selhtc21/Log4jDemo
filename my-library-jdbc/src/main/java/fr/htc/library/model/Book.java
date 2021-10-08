@@ -36,18 +36,10 @@ public class Book {
 		return false;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 
 	/**
-	 * Cette methode permet de générer la cote du livre sous le format AUAA-XXX
+	 * Cette methode permet de gï¿½nï¿½rer la cote du livre sous le format AUAA-XXX
 	 * 
 	 * @return
 	 */

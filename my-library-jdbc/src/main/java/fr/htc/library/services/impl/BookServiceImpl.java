@@ -3,20 +3,24 @@ package fr.htc.library.services.impl;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import fr.htc.library.dao.BookDao;
 import fr.htc.library.dao.impl.map.BookDaoMapImpl;
 import fr.htc.library.model.Book;
 import fr.htc.library.services.BookService;
 
+
 public class BookServiceImpl implements BookService {
 	BookDao bookDao = new BookDaoMapImpl();
 //	BookDao bookDao = new BookDaoJdbcImpl();
+	final static Logger logger = Logger.getLogger(BorrowServiceImpl.class);
 
 	@Override
 	public void createBook(String title, String author, String year) {
 
 		if (title == null || title.isEmpty()) {
-			System.err.println("Title is mandatory...");
+			logger.error("Opretaion canceled : Title is mandatory...");
 			return;
 		}
 		Book book = new Book(title, author, year);
@@ -50,7 +54,7 @@ public class BookServiceImpl implements BookService {
 	@Override
 	public Book findBookByCote(String cote) {
 		if (cote == null) {
-			System.out.println("cote must be provided");
+			logger.warn("Opretaion canceled : cote must be provided  " );
 			return null;
 		}
 		return bookDao.getBookByCote(cote);

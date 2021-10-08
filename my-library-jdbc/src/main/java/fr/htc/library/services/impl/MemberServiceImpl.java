@@ -2,6 +2,8 @@ package fr.htc.library.services.impl;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import fr.htc.library.dao.MemberDao;
 import fr.htc.library.dao.impl.map.MemberDaoMapImpl;
 import fr.htc.library.model.Member;
@@ -9,12 +11,13 @@ import fr.htc.library.services.MemberService;
 
 public class MemberServiceImpl implements MemberService {
 	MemberDao memberDao = new MemberDaoMapImpl();
+	final static Logger logger = Logger.getLogger(BorrowServiceImpl.class);
 
 	@Override
 	public Member createMember(String lastName, String firstName, int age) {
 
 		if (age < 18) {
-			System.err.println("You are not allowed to subscribe, must have at least 18 years old");
+			logger.info("You are not allowed to subscribe, must have at least 18 years old");
 			return null;
 		}
 
@@ -45,7 +48,7 @@ public class MemberServiceImpl implements MemberService {
 	public Member findMemberByMatricule(String matricule) {
 		
 		if (matricule == null || matricule.isEmpty()) {
-			System.out.println("matricul must be provided ");
+			logger.warn("Opretaion canceled : this member doesn't exist : " + matricule);
 			return null;
 		}
 		
