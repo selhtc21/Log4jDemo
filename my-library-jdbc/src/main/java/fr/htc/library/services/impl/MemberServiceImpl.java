@@ -15,17 +15,26 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public Member createMember(String lastName, String firstName, int age) {
-
+		if(lastName == null || lastName.isEmpty()) {
+			logger.error("Operation canceled : lastname is mandatory...");
+		}
+		if(firstName == null || firstName.isEmpty() ) {
+			logger.error("Operation canceled : firstName is mandatory...");
+		}
 		if (age < 18) {
-			logger.info("You are not allowed to subscribe, must have at least 18 years old");
-			return null;
+			logger.error("You are not allowed to subscribe, must have at least 18 years old");
+			 return null;
 		}
 
 		Member member = new Member(firstName, lastName, age);
-
-		return memberDao.save(member);
-
+		try {
+			memberDao.save(member);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return member;
 	}
+
 
 	@Override
 	public List<Member> getMemberList() {
@@ -48,7 +57,7 @@ public class MemberServiceImpl implements MemberService {
 	public Member findMemberByMatricule(String matricule) {
 		
 		if (matricule == null || matricule.isEmpty()) {
-			logger.warn("Opretaion canceled : this member doesn't exist : " + matricule);
+			logger.warn("Opretaion canceled : this member doesn't exist : ");
 			return null;
 		}
 		

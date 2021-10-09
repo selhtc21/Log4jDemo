@@ -6,7 +6,7 @@ import fr.htc.library.model.Book;
 
 public interface BookService {
 
-	void createBook(String title, String author, String year);
+	void createBook(String title, String author, int year);
 
 	List<Book> getBookList();
 

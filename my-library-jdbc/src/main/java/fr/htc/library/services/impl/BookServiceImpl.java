@@ -14,13 +14,22 @@ import fr.htc.library.services.BookService;
 public class BookServiceImpl implements BookService {
 	BookDao bookDao = new BookDaoMapImpl();
 //	BookDao bookDao = new BookDaoJdbcImpl();
+	
 	final static Logger logger = Logger.getLogger(BorrowServiceImpl.class);
 
 	@Override
-	public void createBook(String title, String author, String year) {
+	public void createBook(String title, String author, int year) {
 
 		if (title == null || title.isEmpty()) {
 			logger.error("Opretaion canceled : Title is mandatory...");
+			return;
+		}
+		if(author == null || author.isEmpty()) {
+			logger.error("Opretaion canceled : author is mandatory...");
+			return;
+		}
+		if(year < 1800 ) {
+			logger.error("Opretaion canceled : year is mandatory...");
 			return;
 		}
 		Book book = new Book(title, author, year);
@@ -53,7 +62,7 @@ public class BookServiceImpl implements BookService {
 
 	@Override
 	public Book findBookByCote(String cote) {
-		if (cote == null) {
+		if (cote == null || cote.isEmpty()) {
 			logger.warn("Opretaion canceled : cote must be provided  " );
 			return null;
 		}

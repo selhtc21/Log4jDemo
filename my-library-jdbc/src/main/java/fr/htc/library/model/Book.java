@@ -9,11 +9,11 @@ public class Book {
 	String cote;
 	String title;
 	String author;
-	String year;
+	int year;
 	Member borrower;
 	
 
-	public Book(String title, String author, String year) {
+	public Book(String title, String author, int year) {
 		this.title = title;
 		this.author = author;
 		this.year = year;
@@ -45,7 +45,7 @@ public class Book {
 	 */
 	private String generateCote() {
 		StringBuilder sb = new StringBuilder(this.author.substring(0, 2).toUpperCase());
-		sb.append(year.substring(2, 4));
+		//sb.append(year.substring(2, 4));
 		sb.append("-" + sequence++);
 
 		return sb.toString();
