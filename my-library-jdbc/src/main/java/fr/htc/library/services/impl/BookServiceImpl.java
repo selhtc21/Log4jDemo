@@ -21,15 +21,15 @@ public class BookServiceImpl implements BookService {
 	public void createBook(String title, String author, int year) {
 
 		if (title == null || title.isEmpty()) {
-			logger.error("Opretaion canceled : Title is mandatory...");
+			logger.warn("Opretaion canceled : Title is mandatory...");
 			return;
 		}
 		if(author == null || author.isEmpty()) {
-			logger.error("Opretaion canceled : author is mandatory...");
+			logger.warn("Opretaion canceled : author is mandatory...");
 			return;
 		}
 		if(year < 1800 ) {
-			logger.error("Opretaion canceled : year is mandatory...");
+			logger.error("Opretaion canceled : book publishing year must be higher than 1800");
 			return;
 		}
 		Book book = new Book(title, author, year);

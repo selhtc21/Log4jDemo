@@ -20,13 +20,17 @@ public class MyLibraryLuncher {
 		Member m = memberService.createMember("MOUCHEN", "Djamel", 30);
 
 		// ** save Books abd get all books
-		bookService.createBook("le Zahir", "Paolo", "2005");
-		bookService.createBook("le Zahir", "Paolo", "2005");
-		bookService.createBook("le Zahir", "Paolo", "2005");
-		bookService.createBook("le Zahir", "Paolo", "2005");
+		bookService.createBook("le Zahir", "Paolo", 1005);
+		bookService.createBook("le Zahir", "Paolo", 2005);
+		bookService.createBook("le Zahir", "Paolo", 2005);
+		bookService.createBook("le Zahir", "Paolo", 2005);
 
 			borrowService.checkOut("DM100", "PA05-10");
 			borrowService.checkIn("DM100", "PA05-10");
+		
+		memberService.createMember("salwa", "elbzioui", 17);
+		memberService.createMember("salwa", "elbzioui", 27);
+
 		
 	}
 

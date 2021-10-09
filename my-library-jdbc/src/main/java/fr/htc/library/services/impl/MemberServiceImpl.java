@@ -10,16 +10,17 @@ import fr.htc.library.model.Member;
 import fr.htc.library.services.MemberService;
 
 public class MemberServiceImpl implements MemberService {
+	
 	MemberDao memberDao = new MemberDaoMapImpl();
 	final static Logger logger = Logger.getLogger(BorrowServiceImpl.class);
 
 	@Override
 	public Member createMember(String lastName, String firstName, int age) {
 		if(lastName == null || lastName.isEmpty()) {
-			logger.error("Operation canceled : lastname is mandatory...");
+			logger.warn("Operation canceled : lastname is mandatory...");
 		}
 		if(firstName == null || firstName.isEmpty() ) {
-			logger.error("Operation canceled : firstName is mandatory...");
+			logger.warn("Operation canceled : firstName is mandatory...");
 		}
 		if (age < 18) {
 			logger.error("You are not allowed to subscribe, must have at least 18 years old");
